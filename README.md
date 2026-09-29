@@ -6,7 +6,7 @@ Leiloes TDS - UC11 - Atividade1
 
 Projeto feito em Java, utilizando Banco de Dados e usado para praticar versionamento local e remoto
 
-## Técnologias utilizadas
+## Tecnologias utilizadas
 
 - Java
 - MySQL
