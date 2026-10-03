@@ -39,12 +39,8 @@ public class ProdutosDAO {
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar produto: " + erro.getMessage());
         }
-     
         
-       
-        
-        
-    }
+     }
     
     public ArrayList<ProdutosDTO> listarProdutos(){
         String sql = "SELECT * FROM produtos";
@@ -69,7 +65,23 @@ public class ProdutosDAO {
         return listagem;
     }
     
-    
+    public void venderProduto(int id) {
+        String sql = "UPDATE produtos SET status = 'Vendido' WHERE id = ?";
+        try {
+            conn = new conectaDAO().connectDB();
+            prep = conn.prepareStatement(sql);
+            prep.setInt(1, id);
+            int linhas = prep.executeUpdate();
+
+            if (linhas > 0) {
+                JOptionPane.showMessageDialog(null, "Produto vendido com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhum produto encontrado com o ID informado.");
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao vender produto: " + erro.getMessage());
+        }
+    }
     
         
 }
